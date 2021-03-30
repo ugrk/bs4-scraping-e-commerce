@@ -22,7 +22,7 @@ onurun = urun[:ur]
 fiyurun = fiyat[:ur]
 print('------------------------------------------------------')
 
-lazi = []
+arr = []
 for i in range(ur):
     n += 1
     i = (pngtk[n - 1]['src'])
@@ -30,11 +30,7 @@ for i in range(ur):
     y = onurun[n - 1].text
     t = (fiyurun[n - 1].text.strip().replace(" ", "", 19))
     k = badge[n - 1].text
-    lazi.append(i)
-    lazi.append(a)
-    lazi.append(y)
-    lazi.append(t)
-    lazi.append(k)
+    arr.extend([i, a, y, t, k])
 
 m = 0
 t = 5
@@ -42,7 +38,7 @@ t = 5
 rows = []
 
 for i in range(ur):
-    a = lazi[m:t]
+    a = arr[m:t]
     rows.append(a)
     m += 5
     t += 5
@@ -55,4 +51,3 @@ with open(filename, 'w', encoding='utf-8', newline='') as csvfile:
     csvwriter.writerow(fields)
 
     csvwriter.writerows(rows)
-
